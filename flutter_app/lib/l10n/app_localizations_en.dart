@@ -10,4 +10,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get appTitle => 'StreetBite';
+
+  @override
+  String get homeTitle => 'StreetBite Home';
+
+  @override
+  String get counterMessage => 'You have pushed the button this many times:';
+
+  @override
+  String get increment => 'Increment';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get settingsTitle => 'Settings';
+
+  @override
+  String get darkMode => 'Dark mode';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get english => 'English';
+
+  @override
+  String get arabic => 'Arabic';
 }

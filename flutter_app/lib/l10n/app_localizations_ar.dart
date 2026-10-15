@@ -10,4 +10,31 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get appTitle => 'ستريت بايت';
+
+  @override
+  String get homeTitle => 'الرئيسية';
+
+  @override
+  String get counterMessage => 'لقد ضغطت على الزر هذا العدد من المرات:';
+
+  @override
+  String get increment => 'زيادة';
+
+  @override
+  String get settings => 'الإعدادات';
+
+  @override
+  String get settingsTitle => 'الإعدادات';
+
+  @override
+  String get darkMode => 'الوضع الداكن';
+
+  @override
+  String get language => 'اللغة';
+
+  @override
+  String get english => 'الإنجليزية';
+
+  @override
+  String get arabic => 'العربية';
 }

@@ -1,4 +1,13 @@
 {
   "@@locale": "ar",
-  "appTitle": "ستريت بايت"
+  "appTitle": "ستريت بايت",
+  "homeTitle": "الرئيسية",
+  "counterMessage": "لقد ضغطت على الزر هذا العدد من المرات:",
+  "increment": "زيادة",
+  "settings": "الإعدادات",
+  "settingsTitle": "الإعدادات",
+  "darkMode": "الوضع الداكن",
+  "language": "اللغة",
+  "english": "الإنجليزية",
+  "arabic": "العربية"
 }

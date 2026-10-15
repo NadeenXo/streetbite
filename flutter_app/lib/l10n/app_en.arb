@@ -1,4 +1,13 @@
 {
   "@@locale": "en",
-  "appTitle": "StreetBite"
+  "appTitle": "StreetBite",
+  "homeTitle": "StreetBite Home",
+  "counterMessage": "You have pushed the button this many times:",
+  "increment": "Increment",
+  "settings": "Settings",
+  "settingsTitle": "Settings",
+  "darkMode": "Dark mode",
+  "language": "Language",
+  "english": "English",
+  "arabic": "Arabic"
 }

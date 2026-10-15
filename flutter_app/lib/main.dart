@@ -1,6 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'firebase_options.dart';
 import 'core/theme/app_theme.dart';
 import 'injection.dart';
 import 'l10n/app_localizations.dart';
@@ -12,19 +14,25 @@ import 'presentation/screens/settings/settings_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Firebase before accessing Firebase services.
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  // Register dependencies using GetIt.
   await initDependencies();
-  runApp(const MyApp());
+
+  runApp(const StreetBiteApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class StreetBiteApp extends StatelessWidget {
+  const StreetBiteApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => ThemeBloc()),
-        BlocProvider(create: (_) => LocaleCubit()),
+        BlocProvider<ThemeBloc>(create: (_) => ThemeBloc()),
+        BlocProvider<LocaleCubit>(create: (_) => LocaleCubit()),
       ],
       child: const _AppView(),
     );
@@ -41,70 +49,25 @@ class _AppView extends StatelessWidget {
         return BlocBuilder<LocaleCubit, LocaleState>(
           builder: (context, localeState) {
             return MaterialApp(
-              title: 'StreetBite',
+              debugShowCheckedModeBanner: false,
+
+              onGenerateTitle: (context) =>
+                  AppLocalizations.of(context).appTitle,
+
               theme: AppTheme.lightTheme,
               darkTheme: AppTheme.darkTheme,
               themeMode: themeState.themeMode,
+
               locale: localeState.locale,
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,
-              home: const MyHomePage(),
+
+              // Temporary screen for testing localization and theme.
+              home: const SettingsScreen(),
             );
           },
         );
       },
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(l10n.homeTitle),
-        actions: [
-          IconButton(
-            tooltip: l10n.settings,
-            icon: const Icon(Icons.settings_outlined),
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute<void>(
-                  builder: (_) => const SettingsScreen(),
-                ),
-              );
-            },
-          ),
-        ],
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(l10n.counterMessage),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => setState(() => _counter++),
-        tooltip: l10n.increment,
-        child: const Icon(Icons.add),
-      ),
     );
   }
 }

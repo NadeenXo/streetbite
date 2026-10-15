@@ -1,17 +1,13 @@
 class ServerException implements Exception {
   final String message;
 
-  const ServerException([
-    this.message = 'Server request failed',
-  ]);
+  const ServerException([this.message = 'Server request failed']);
 }
 
 class CacheException implements Exception {
   final String message;
 
-  const CacheException([
-    this.message = 'Cached data unavailable',
-  ]);
+  const CacheException([this.message = 'Cached data unavailable']);
 }
 
 class AppFirebaseException implements Exception {

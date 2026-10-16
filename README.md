@@ -1,11 +1,11 @@
-<div align="center">
-  <img src="screenshots/branding/streetbite_logo.png" alt="StreetBite logo" width="520" />
 
-  **Good Food. Closer to You.**
+<p align="center">
+  <img src="screenshots/streetbite_logo.png" width="400" alt="StreetBite Logo">
+</p>
 
-  Flutter graduation capstone · English & Arabic · Light & Dark Mode
-</div>
-
+<p align="center">
+  <strong>Good Food. Closer to You.</strong>
+</p>
 ## About
 
 **StreetBite V1.0** is a Flutter food discovery and demo ordering app. Browse meals from **TheMealDB**, save favourites, manage a cart, and view orders.
@@ -61,10 +61,8 @@ Release APK: `flutter_app/build/app/outputs/flutter-apk/app-release.apk`. Distri
 
 ## Branding
 
-![StreetBite brand board](screenshots/branding/brand_guide.png)
+![StreetBite Brand Guide](screenshots/img1.png)
 
-| App icon | Splash concept |
+| App Icon | Splash Screen Concept |
 |---|---|
-| <img src="screenshots/branding/streetbite_icon.png" width="140" alt="StreetBite icon" /> | <img src="screenshots/branding/splash_concept.png" width="220" alt="StreetBite splash concept mockup" /> |
-
-*Branding images above are design assets/mockups; add real application screenshots and Firebase distribution evidence before submission.*
+| ![StreetBite Icon](screenshots/streetbite_icon.png) | ![StreetBite Splash](screenshots/img2.png) |

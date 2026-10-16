@@ -1,2 +1,0 @@
-C:/Users/dell/streetbite/flutter_app/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-7l0pbg/CMakeFiles/cmTC_42560.dir
-C:/Users/dell/streetbite/flutter_app/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-7l0pbg/CMakeFiles/ALL_BUILD.dir

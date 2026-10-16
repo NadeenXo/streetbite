@@ -14,4 +14,9 @@ abstract class AuthRemoteDataSource {
   Future<UserModel?> getCurrentUser();
 
   Stream<String?> authStateChanges();
+
+  Future<void> updatePhotoUrl({
+    required String userId,
+    required String photoUrl,
+  });
 }

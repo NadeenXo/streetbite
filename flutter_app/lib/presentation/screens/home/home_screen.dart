@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/errors/failures.dart';
+import '../../../core/services/biometric_auth_service.dart';
 import '../../../injection.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../blocs/cart/cart_bloc.dart';
@@ -16,7 +17,7 @@ import '../cart/cart_screen.dart';
 import '../favourites/favourites_screen.dart';
 import '../meal_details/meal_details_screen.dart';
 import '../orders/orders_screen.dart';
-import '../settings/settings_screen.dart';
+import '../profile/profile_screen.dart';
 import '../../widgets/home/featured_meal_banner.dart';
 import '../../widgets/home/hot_offers_list.dart';
 import '../../widgets/home/meal_card.dart';
@@ -103,30 +104,40 @@ class HomeScreen extends StatelessWidget {
                 );
               },
             ),
-            // BlocBuilder<ThemeBloc, ThemeState>(
-            //   builder: (context, state) {
-            //     final isDark = state.themeMode == ThemeMode.dark;
-
-            //     return IconButton(
-            //       tooltip: isDark ? l10n.lightMode : l10n.darkMode,
-            //       icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
-            //       onPressed: () {
-            //         context.read<ThemeBloc>().add(const ToggleTheme());
-            //       },
-            //     );
-            //   },
-            // ),
             IconButton(
-              tooltip: l10n.settings,
-              icon: const Icon(Icons.settings_outlined),
-              onPressed: () {
+              tooltip: l10n.profile,
+              icon: const Icon(Icons.person_outline),
+              onPressed: () async {
+                final authenticated = await sl<BiometricAuthService>()
+                    .authenticate();
+
+                if (!context.mounted) return;
+
+                if (!authenticated) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(l10n.fingerprintRequired)),
+                  );
+                  return;
+                }
+
                 Navigator.of(context).push(
                   MaterialPageRoute<void>(
-                    builder: (_) => const SettingsScreen(),
+                    builder: (_) => const ProfileScreen(),
                   ),
                 );
               },
             ),
+            // IconButton(
+            //   tooltip: l10n.settings,
+            //   icon: const Icon(Icons.settings_outlined),
+            //   onPressed: () {
+            //     Navigator.of(context).push(
+            //       MaterialPageRoute<void>(
+            //         builder: (_) => const SettingsScreen(),
+            //       ),
+            //     );
+            //   },
+            // ),
           ],
         ),
         body: BlocBuilder<MealBloc, MealState>(

@@ -1,3 +1,4 @@
+import java.util.Properties
 plugins {
     id("com.android.application")
     // START: FlutterFire Configuration
@@ -6,6 +7,22 @@ plugins {
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
+
+val mapsProperties = Properties()
+val defaultsProperties = Properties()
+val secretsFile = rootProject.file("secrets.properties")
+val defaultsFile = rootProject.file("local.defaults.properties")
+
+if (defaultsFile.exists()) {
+    defaultsFile.inputStream().use { defaultsProperties.load(it) }
+}
+if (secretsFile.exists()) {
+    secretsFile.inputStream().use { mapsProperties.load(it) }
+}
+
+val mapsApiKey = mapsProperties.getProperty("MAPS_API_KEY")
+    ?: defaultsProperties.getProperty("MAPS_API_KEY")
+    ?: "DEFAULT_API_KEY"
 
 android {
     namespace = "com.example.streetbite"
@@ -26,6 +43,7 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        manifestPlaceholders["MAPS_API_KEY"] = mapsApiKey
     }
 
     buildTypes {

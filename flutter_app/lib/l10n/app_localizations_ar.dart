@@ -24,6 +24,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get settings => 'الإعدادات';
 
   @override
+  String get profile => 'الملف الشخصي';
+
+  @override
   String get settingsTitle => 'الإعدادات';
 
   @override
@@ -242,4 +245,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get orderStatus => 'الحالة';
+
+  @override
+  String get back => 'رجوع';
+
+  @override
+  String get nearbyVendors => 'البائعون القريبون';
+
+  @override
+  String get fingerprintRequired => 'يلزم التحقق ببصمة الإصبع لفتح ملفك الشخصي';
 }

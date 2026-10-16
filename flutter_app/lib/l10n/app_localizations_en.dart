@@ -24,6 +24,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settings => 'Settings';
 
   @override
+  String get profile => 'Profile';
+
+  @override
   String get settingsTitle => 'Settings';
 
   @override
@@ -244,4 +247,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get orderStatus => 'Status';
+
+  @override
+  String get back => 'Back';
+
+  @override
+  String get nearbyVendors => 'Nearby Vendors';
+
+  @override
+  String get fingerprintRequired =>
+      'Fingerprint authentication is required to open your profile';
 }

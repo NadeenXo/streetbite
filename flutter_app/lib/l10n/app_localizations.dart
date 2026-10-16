@@ -128,6 +128,12 @@ abstract class AppLocalizations {
   /// **'Settings'**
   String get settings;
 
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
   /// No description provided for @settingsTitle.
   ///
   /// In en, this message translates to:
@@ -559,6 +565,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Status'**
   String get orderStatus;
+
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
+
+  /// No description provided for @nearbyVendors.
+  ///
+  /// In en, this message translates to:
+  /// **'Nearby Vendors'**
+  String get nearbyVendors;
+
+  /// No description provided for @fingerprintRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Fingerprint authentication is required to open your profile'**
+  String get fingerprintRequired;
 }
 
 class _AppLocalizationsDelegate

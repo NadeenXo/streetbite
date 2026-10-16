@@ -123,4 +123,18 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   Stream<String?> authStateChanges() {
     return firebaseAuth.authStateChanges().map((user) => user?.uid);
   }
+
+  @override
+  Future<void> updatePhotoUrl({
+    required String userId,
+    required String photoUrl,
+  }) async {
+    try {
+      await firestore.collection('users').doc(userId).update({
+        'photoUrl': photoUrl,
+      });
+    } on FirebaseException catch (error) {
+      throw AppFirebaseException(error.code);
+    }
+  }
 }

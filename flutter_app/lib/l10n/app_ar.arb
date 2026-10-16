@@ -5,6 +5,7 @@
   "counterMessage": "لقد ضغطت على الزر هذا العدد من المرات:",
   "increment": "زيادة",
   "settings": "الإعدادات",
+  "profile": "الملف الشخصي",
   "settingsTitle": "الإعدادات",
   "darkMode": "الوضع الداكن",
   "language": "اللغة",
@@ -83,5 +84,8 @@
   "myOrders": "طلباتي",
   "noOrders": "لا توجد طلبات حتى الآن",
   "orderNumber": "طلب",
-  "orderStatus": "الحالة"
+  "orderStatus": "الحالة",
+  "back": "رجوع",
+  "nearbyVendors": "البائعون القريبون",
+  "fingerprintRequired": "يلزم التحقق ببصمة الإصبع لفتح ملفك الشخصي"
 }

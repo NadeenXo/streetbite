@@ -13,6 +13,7 @@ import 'presentation/blocs/locale/locale_state.dart';
 import 'presentation/blocs/auth/auth_cubit.dart';
 import 'presentation/blocs/theme/theme_bloc.dart';
 import 'presentation/blocs/theme/theme_state.dart';
+import 'presentation/screens/splash/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -63,7 +64,7 @@ class _AppView extends StatelessWidget {
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,
 
-              home: const AuthGate(),
+              home: const SplashScreen(nextScreen: AuthGate()),
             );
           },
         );

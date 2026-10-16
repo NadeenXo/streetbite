@@ -5,6 +5,7 @@
   "counterMessage": "You have pushed the button this many times:",
   "increment": "Increment",
   "settings": "Settings",
+  "profile": "Profile",
   "settingsTitle": "Settings",
   "darkMode": "Dark mode",
   "language": "Language",
@@ -83,5 +84,8 @@
   "myOrders": "My Orders",
   "noOrders": "You have no orders yet",
   "orderNumber": "Order",
-  "orderStatus": "Status"
+  "orderStatus": "Status",
+  "back": "Back",
+  "nearbyVendors": "Nearby Vendors",
+  "fingerprintRequired": "Fingerprint authentication is required to open your profile"
 }

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
+import 'package:local_auth/local_auth.dart';
 import 'package:streetbite/data/datasources/auth/auth_remote_data_source.dart';
 import 'package:streetbite/data/datasources/auth/auth_remote_data_source_impl.dart';
 import 'package:streetbite/data/datasources/favourites/favourite_remote_data_source.dart';
@@ -17,10 +18,14 @@ import 'data/repositories/meal_repository_impl.dart';
 import 'data/repositories/auth_repository_impl.dart';
 import 'data/repositories/favourite_repository_impl.dart';
 import 'data/repositories/order_repository_impl.dart';
+import 'data/repositories/profile_repository_impl.dart';
+import 'core/services/device_info_service.dart';
+import 'core/services/biometric_auth_service.dart';
 import 'domain/repositories/favourite_repository.dart';
 import 'domain/repositories/auth_repository.dart';
 import 'domain/repositories/meal_repository.dart';
 import 'domain/repositories/order_repository.dart';
+import 'domain/repositories/profile_repository.dart';
 import 'domain/usecases/auth/get_current_user_usecase.dart';
 import 'domain/usecases/auth/login_usecase.dart';
 import 'domain/usecases/auth/logout_usecase.dart';
@@ -35,6 +40,8 @@ import 'presentation/blocs/meals/meal_bloc.dart';
 import 'presentation/blocs/orders/orders_cubit.dart';
 import 'domain/usecases/meals/get_meals_usecase.dart';
 import 'domain/usecases/orders/place_order_usecase.dart';
+import 'domain/usecases/profile/update_profile_photo_usecase.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 
 final GetIt sl = GetIt.instance;
 
@@ -42,6 +49,18 @@ Future<void> initDependencies() async {
   // Singleton: one shared Dio client.
   if (!sl.isRegistered<Dio>()) {
     sl.registerLazySingleton<Dio>(DioClient.create);
+  }
+
+  if (!sl.isRegistered<DeviceInfoService>()) {
+    sl.registerLazySingleton<DeviceInfoService>(
+      () => DeviceInfoService(DeviceInfoPlugin()),
+    );
+  }
+
+  if (!sl.isRegistered<BiometricAuthService>()) {
+    sl.registerLazySingleton<BiometricAuthService>(
+      () => BiometricAuthService(LocalAuthentication()),
+    );
   }
 
   if (!sl.isRegistered<OrderRemoteDataSource>()) {
@@ -173,6 +192,18 @@ Future<void> initDependencies() async {
   if (!sl.isRegistered<AuthRepository>()) {
     sl.registerLazySingleton<AuthRepository>(
       () => AuthRepositoryImpl(remoteDataSource: sl<AuthRemoteDataSource>()),
+    );
+  }
+
+  if (!sl.isRegistered<ProfileRepository>()) {
+    sl.registerLazySingleton<ProfileRepository>(
+      () => ProfileRepositoryImpl(sl<AuthRemoteDataSource>()),
+    );
+  }
+
+  if (!sl.isRegistered<UpdateProfilePhotoUseCase>()) {
+    sl.registerLazySingleton<UpdateProfilePhotoUseCase>(
+      () => UpdateProfilePhotoUseCase(sl<ProfileRepository>()),
     );
   }
 

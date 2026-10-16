@@ -70,5 +70,18 @@
   ,"removeFavourite": "Remove from favourites"
   ,"category": "Category"
   ,"area": "Cuisine"
-  ,"instructions": "Instructions"
+  ,"instructions": "Instructions",
+  "checkout": "Checkout",
+  "orderSummary": "Order Summary",
+  "paymentMethod": "Payment Method",
+  "cashOnDelivery": "Cash on Delivery",
+  "demoCard": "Demo Card Payment",
+  "demoPaymentNotice": "Simulation only. No real money will be charged.",
+  "placeOrder": "Place Order",
+  "orderSuccess": "Your order was placed successfully!",
+  "orderError": "Unable to process your order. Please try again.",
+  "myOrders": "My Orders",
+  "noOrders": "You have no orders yet",
+  "orderNumber": "Order",
+  "orderStatus": "Status"
 }

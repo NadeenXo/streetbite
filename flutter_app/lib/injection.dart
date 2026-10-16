@@ -9,15 +9,18 @@ import 'package:streetbite/data/datasources/meals/meal_local_data_source.dart';
 import 'package:streetbite/data/datasources/meals/meal_local_data_source_impl.dart';
 import 'package:streetbite/data/datasources/meals/meal_remote_data_source.dart';
 import 'package:streetbite/data/datasources/meals/meal_remote_data_source_impl.dart';
+import 'package:streetbite/data/datasources/orders/order_remote_data_source.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'data/repositories/meal_data_source_factory.dart';
 import 'data/repositories/meal_repository_impl.dart';
 import 'data/repositories/auth_repository_impl.dart';
 import 'data/repositories/favourite_repository_impl.dart';
+import 'data/repositories/order_repository_impl.dart';
 import 'domain/repositories/favourite_repository.dart';
 import 'domain/repositories/auth_repository.dart';
 import 'domain/repositories/meal_repository.dart';
+import 'domain/repositories/order_repository.dart';
 import 'domain/usecases/auth/get_current_user_usecase.dart';
 import 'domain/usecases/auth/login_usecase.dart';
 import 'domain/usecases/auth/logout_usecase.dart';
@@ -29,7 +32,9 @@ import 'presentation/blocs/auth/auth_cubit.dart';
 import 'presentation/blocs/cart/cart_bloc.dart';
 import 'presentation/blocs/favourites/favourites_cubit.dart';
 import 'presentation/blocs/meals/meal_bloc.dart';
+import 'presentation/blocs/orders/orders_cubit.dart';
 import 'domain/usecases/meals/get_meals_usecase.dart';
+import 'domain/usecases/orders/place_order_usecase.dart';
 
 final GetIt sl = GetIt.instance;
 
@@ -37,6 +42,33 @@ Future<void> initDependencies() async {
   // Singleton: one shared Dio client.
   if (!sl.isRegistered<Dio>()) {
     sl.registerLazySingleton<Dio>(DioClient.create);
+  }
+
+  if (!sl.isRegistered<OrderRemoteDataSource>()) {
+    sl.registerLazySingleton<OrderRemoteDataSource>(
+      () => OrderRemoteDataSourceImpl(sl<FirebaseFirestore>()),
+    );
+  }
+
+  if (!sl.isRegistered<OrderRepository>()) {
+    sl.registerLazySingleton<OrderRepository>(
+      () => OrderRepositoryImpl(sl<OrderRemoteDataSource>()),
+    );
+  }
+
+  if (!sl.isRegistered<PlaceOrderUseCase>()) {
+    sl.registerLazySingleton<PlaceOrderUseCase>(
+      () => PlaceOrderUseCase(sl<OrderRepository>()),
+    );
+  }
+
+  if (!sl.isRegistered<OrdersCubit>()) {
+    sl.registerFactory<OrdersCubit>(
+      () => OrdersCubit(
+        placeOrderUseCase: sl<PlaceOrderUseCase>(),
+        repository: sl<OrderRepository>(),
+      ),
+    );
   }
 
   // Reuse the Firebase Authentication SDK instance.

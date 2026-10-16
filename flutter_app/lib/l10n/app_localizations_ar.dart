@@ -203,4 +203,43 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get instructions => 'طريقة التحضير';
+
+  @override
+  String get checkout => 'إتمام الطلب';
+
+  @override
+  String get orderSummary => 'ملخص الطلب';
+
+  @override
+  String get paymentMethod => 'طريقة الدفع';
+
+  @override
+  String get cashOnDelivery => 'الدفع عند الاستلام';
+
+  @override
+  String get demoCard => 'الدفع بالبطاقة (تجريبي)';
+
+  @override
+  String get demoPaymentNotice => 'محاكاة فقط، لن يتم خصم أي أموال حقيقية.';
+
+  @override
+  String get placeOrder => 'تأكيد الطلب';
+
+  @override
+  String get orderSuccess => 'تم إرسال طلبك بنجاح!';
+
+  @override
+  String get orderError => 'تعذر إتمام الطلب. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get myOrders => 'طلباتي';
+
+  @override
+  String get noOrders => 'لا توجد طلبات حتى الآن';
+
+  @override
+  String get orderNumber => 'طلب';
+
+  @override
+  String get orderStatus => 'الحالة';
 }

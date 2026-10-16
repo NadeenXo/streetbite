@@ -70,5 +70,18 @@
   ,"removeFavourite": "إزالة من المفضلة"
   ,"category": "التصنيف"
   ,"area": "المطبخ"
-  ,"instructions": "طريقة التحضير"
+  ,"instructions": "طريقة التحضير",
+  "checkout": "إتمام الطلب",
+  "orderSummary": "ملخص الطلب",
+  "paymentMethod": "طريقة الدفع",
+  "cashOnDelivery": "الدفع عند الاستلام",
+  "demoCard": "الدفع بالبطاقة (تجريبي)",
+  "demoPaymentNotice": "محاكاة فقط، لن يتم خصم أي أموال حقيقية.",
+  "placeOrder": "تأكيد الطلب",
+  "orderSuccess": "تم إرسال طلبك بنجاح!",
+  "orderError": "تعذر إتمام الطلب. يرجى المحاولة مرة أخرى.",
+  "myOrders": "طلباتي",
+  "noOrders": "لا توجد طلبات حتى الآن",
+  "orderNumber": "طلب",
+  "orderStatus": "الحالة"
 }

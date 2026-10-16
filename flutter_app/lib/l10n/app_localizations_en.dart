@@ -204,4 +204,44 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get instructions => 'Instructions';
+
+  @override
+  String get checkout => 'Checkout';
+
+  @override
+  String get orderSummary => 'Order Summary';
+
+  @override
+  String get paymentMethod => 'Payment Method';
+
+  @override
+  String get cashOnDelivery => 'Cash on Delivery';
+
+  @override
+  String get demoCard => 'Demo Card Payment';
+
+  @override
+  String get demoPaymentNotice =>
+      'Simulation only. No real money will be charged.';
+
+  @override
+  String get placeOrder => 'Place Order';
+
+  @override
+  String get orderSuccess => 'Your order was placed successfully!';
+
+  @override
+  String get orderError => 'Unable to process your order. Please try again.';
+
+  @override
+  String get myOrders => 'My Orders';
+
+  @override
+  String get noOrders => 'You have no orders yet';
+
+  @override
+  String get orderNumber => 'Order';
+
+  @override
+  String get orderStatus => 'Status';
 }

@@ -481,6 +481,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Instructions'**
   String get instructions;
+
+  /// No description provided for @checkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Checkout'**
+  String get checkout;
+
+  /// No description provided for @orderSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Order Summary'**
+  String get orderSummary;
+
+  /// No description provided for @paymentMethod.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment Method'**
+  String get paymentMethod;
+
+  /// No description provided for @cashOnDelivery.
+  ///
+  /// In en, this message translates to:
+  /// **'Cash on Delivery'**
+  String get cashOnDelivery;
+
+  /// No description provided for @demoCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Demo Card Payment'**
+  String get demoCard;
+
+  /// No description provided for @demoPaymentNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Simulation only. No real money will be charged.'**
+  String get demoPaymentNotice;
+
+  /// No description provided for @placeOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Place Order'**
+  String get placeOrder;
+
+  /// No description provided for @orderSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Your order was placed successfully!'**
+  String get orderSuccess;
+
+  /// No description provided for @orderError.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to process your order. Please try again.'**
+  String get orderError;
+
+  /// No description provided for @myOrders.
+  ///
+  /// In en, this message translates to:
+  /// **'My Orders'**
+  String get myOrders;
+
+  /// No description provided for @noOrders.
+  ///
+  /// In en, this message translates to:
+  /// **'You have no orders yet'**
+  String get noOrders;
+
+  /// No description provided for @orderNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Order'**
+  String get orderNumber;
+
+  /// No description provided for @orderStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get orderStatus;
 }
 
 class _AppLocalizationsDelegate

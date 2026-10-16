@@ -3,7 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:streetbite/presentation/blocs/auth/auth_cubit.dart';
 import 'package:streetbite/presentation/blocs/auth/auth_state.dart';
 import 'package:streetbite/presentation/widgets/auth_failure_message.dart';
-
+import 'package:streetbite/injection.dart';
+import 'package:streetbite/presentation/blocs/cart/cart_bloc.dart';
+import 'package:streetbite/presentation/blocs/favourites/favourites_cubit.dart';
+import 'package:streetbite/presentation/blocs/orders/orders_cubit.dart';
 import '../../../core/errors/failures.dart';
 
 import '../../../l10n/app_localizations.dart';
@@ -20,20 +23,32 @@ class AuthGate extends StatelessWidget {
     return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, state) {
         if (state is AuthAuthenticated) {
-          return const AuthenticatedLandingScreen();
+          return MultiBlocProvider(
+            key: ValueKey(state.user.id),
+            providers: [
+              BlocProvider<CartBloc>(create: (_) => sl<CartBloc>()),
+              BlocProvider<FavouritesCubit>(
+                create: (_) => sl<FavouritesCubit>()..start(state.user.id),
+              ),
+              BlocProvider<OrdersCubit>(create: (_) => sl<OrdersCubit>()),
+            ],
+            child: const AuthenticatedLandingScreen(),
+          );
         }
+
         if (state is AuthInitial ||
-            state is AuthLoading && state.action == AuthAction.restore) {
+            (state is AuthLoading && state.action == AuthAction.restore)) {
           return const Scaffold(
             body: Center(child: CircularProgressIndicator()),
           );
         }
+
         if (state is AuthError &&
             (state.action == AuthAction.restore ||
                 state.action == AuthAction.logout)) {
           return _SessionProblem(failure: state.failure);
         }
-        // Keep the Login/Sign Up flow visible for action errors and loading.
+
         return const LoginScreen();
       },
     );

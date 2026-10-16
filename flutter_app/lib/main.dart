@@ -11,9 +11,6 @@ import 'l10n/app_localizations.dart';
 import 'presentation/blocs/locale/locale_cubit.dart';
 import 'presentation/blocs/locale/locale_state.dart';
 import 'presentation/blocs/auth/auth_cubit.dart';
-import 'presentation/blocs/auth/auth_state.dart';
-import 'presentation/blocs/cart/cart_bloc.dart';
-import 'presentation/blocs/favourites/favourites_cubit.dart';
 import 'presentation/blocs/theme/theme_bloc.dart';
 import 'presentation/blocs/theme/theme_state.dart';
 
@@ -37,8 +34,6 @@ class StreetBiteApp extends StatelessWidget {
         BlocProvider<ThemeBloc>(create: (_) => ThemeBloc()),
         BlocProvider<LocaleCubit>(create: (_) => LocaleCubit()),
         BlocProvider<AuthCubit>(create: (_) => sl<AuthCubit>()..start()),
-        BlocProvider<CartBloc>(create: (_) => sl<CartBloc>()),
-        BlocProvider<FavouritesCubit>(create: (_) => sl<FavouritesCubit>()),
       ],
       child: const _AppView(),
     );
@@ -68,16 +63,7 @@ class _AppView extends StatelessWidget {
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,
 
-              home: BlocListener<AuthCubit, AuthState>(
-                listener: (context, state) {
-                  if (state is AuthAuthenticated) {
-                    context.read<FavouritesCubit>().start(state.user.id);
-                  } else if (state is AuthUnauthenticated) {
-                    context.read<FavouritesCubit>().reset();
-                  }
-                },
-                child: const AuthGate(),
-              ),
+              home: const AuthGate(),
             );
           },
         );

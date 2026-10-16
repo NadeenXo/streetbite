@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../injection.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../blocs/cart/cart_bloc.dart';
 import '../../blocs/cart/cart_event.dart';
 import '../../blocs/cart/cart_state.dart';
+import '../../blocs/orders/orders_cubit.dart';
 import '../../widgets/cart/cart_item_tile.dart';
+import '../orders/checkout_screen.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -62,11 +65,37 @@ class CartScreen extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(16),
-                  child: Text(
-                    '${l10n.total}: '
-                    '${(state.totalPrice / 100).toStringAsFixed(2)} '
-                    '${l10n.currencyEgp}',
-                    style: Theme.of(context).textTheme.titleLarge,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        '${l10n.total}: '
+                        '${(state.totalPrice / 100).toStringAsFixed(2)} '
+                        '${l10n.currencyEgp}',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      const SizedBox(height: 12),
+                      FilledButton(
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute<void>(
+                              builder: (_) => MultiBlocProvider(
+                                providers: [
+                                  BlocProvider<CartBloc>.value(
+                                    value: context.read<CartBloc>(),
+                                  ),
+                                  BlocProvider<OrdersCubit>(
+                                    create: (_) => sl<OrdersCubit>(),
+                                  ),
+                                ],
+                                child: const CheckoutScreen(),
+                              ),
+                            ),
+                          );
+                        },
+                        child: Text(l10n.checkout),
+                      ),
+                    ],
                   ),
                 ),
               ],

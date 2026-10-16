@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/errors/failures.dart';
+import '../../../injection.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../blocs/cart/cart_bloc.dart';
 import '../../blocs/cart/cart_event.dart';
@@ -10,12 +11,12 @@ import '../../blocs/favourites/favourites_cubit.dart';
 import '../../blocs/meals/meal_bloc.dart';
 import '../../blocs/meals/meal_event.dart';
 import '../../blocs/meals/meal_state.dart';
-import '../../blocs/theme/theme_bloc.dart';
-import '../../blocs/theme/theme_event.dart';
-import '../../blocs/theme/theme_state.dart';
+import '../../blocs/orders/orders_cubit.dart';
 import '../cart/cart_screen.dart';
 import '../favourites/favourites_screen.dart';
 import '../meal_details/meal_details_screen.dart';
+import '../orders/orders_screen.dart';
+import '../settings/settings_screen.dart';
 import '../../widgets/home/featured_meal_banner.dart';
 import '../../widgets/home/hot_offers_list.dart';
 import '../../widgets/home/meal_card.dart';
@@ -88,16 +89,41 @@ class HomeScreen extends StatelessWidget {
                 );
               },
             ),
-            BlocBuilder<ThemeBloc, ThemeState>(
-              builder: (context, state) {
-                final isDark = state.themeMode == ThemeMode.dark;
+            IconButton(
+              icon: const Icon(Icons.receipt_long_outlined),
+              tooltip: l10n.myOrders,
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => BlocProvider<OrdersCubit>(
+                      create: (_) => sl<OrdersCubit>(),
+                      child: const OrdersScreen(),
+                    ),
+                  ),
+                );
+              },
+            ),
+            // BlocBuilder<ThemeBloc, ThemeState>(
+            //   builder: (context, state) {
+            //     final isDark = state.themeMode == ThemeMode.dark;
 
-                return IconButton(
-                  tooltip: isDark ? l10n.lightMode : l10n.darkMode,
-                  icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
-                  onPressed: () {
-                    context.read<ThemeBloc>().add(const ToggleTheme());
-                  },
+            //     return IconButton(
+            //       tooltip: isDark ? l10n.lightMode : l10n.darkMode,
+            //       icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
+            //       onPressed: () {
+            //         context.read<ThemeBloc>().add(const ToggleTheme());
+            //       },
+            //     );
+            //   },
+            // ),
+            IconButton(
+              tooltip: l10n.settings,
+              icon: const Icon(Icons.settings_outlined),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => const SettingsScreen(),
+                  ),
                 );
               },
             ),

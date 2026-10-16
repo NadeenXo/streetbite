@@ -54,5 +54,9 @@
   "checkInternet": "تحقق من اتصال الإنترنت وحاول مرة أخرى.",
   "mealCategoryUnknown": "أخرى",
   "lightMode": "الوضع الفاتح",
-  "addToCart": "أضف إلى السلة"
+  "addToCart": "أضف إلى السلة",
+  "addedToCart": "تمت إضافة الوجبة إلى السلة",
+  "cart": "السلة",
+  "cartEmpty": "السلة فارغة",
+  "total": "الإجمالي"
 }

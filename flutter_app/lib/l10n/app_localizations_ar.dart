@@ -155,4 +155,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get addToCart => 'أضف إلى السلة';
+
+  @override
+  String get addedToCart => 'تمت إضافة الوجبة إلى السلة';
+
+  @override
+  String get cart => 'السلة';
+
+  @override
+  String get cartEmpty => 'السلة فارغة';
+
+  @override
+  String get total => 'الإجمالي';
 }

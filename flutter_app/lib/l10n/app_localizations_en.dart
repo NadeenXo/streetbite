@@ -156,4 +156,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addToCart => 'Add to Cart';
+
+  @override
+  String get addedToCart => 'Meal added to cart';
+
+  @override
+  String get cart => 'Cart';
+
+  @override
+  String get cartEmpty => 'Your cart is empty';
+
+  @override
+  String get total => 'Total';
 }

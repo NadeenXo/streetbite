@@ -54,5 +54,9 @@
   "checkInternet": "Check your internet connection and try again.",
   "mealCategoryUnknown": "Other",
   "lightMode": "Light Mode",
-  "addToCart": "Add to Cart"
+  "addToCart": "Add to Cart",
+  "addedToCart": "Meal added to cart",
+  "cart": "Cart",
+  "cartEmpty": "Your cart is empty",
+  "total": "Total"
 }

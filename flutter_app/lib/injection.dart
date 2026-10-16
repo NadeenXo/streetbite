@@ -22,6 +22,7 @@ import 'domain/usecases/auth/observe_auth_state_usecase.dart';
 import 'domain/usecases/auth/signup_usecase.dart';
 import 'core/network/dio_client.dart';
 import 'presentation/blocs/auth/auth_cubit.dart';
+import 'presentation/blocs/cart/cart_bloc.dart';
 import 'presentation/blocs/meals/meal_bloc.dart';
 import 'domain/usecases/meals/get_meals_usecase.dart';
 
@@ -90,6 +91,10 @@ Future<void> initDependencies() async {
     sl.registerFactory<MealBloc>(
       () => MealBloc(getMealsUseCase: sl<GetMealsUseCase>()),
     );
+  }
+
+  if (!sl.isRegistered<CartBloc>()) {
+    sl.registerFactory<CartBloc>(CartBloc.new);
   }
 
   if (!sl.isRegistered<AuthRemoteDataSource>()) {

@@ -5,9 +5,15 @@ import '../../../l10n/app_localizations.dart';
 
 class MealCard extends StatelessWidget {
   final MealEntity meal;
+  final VoidCallback onAddToCart;
   final VoidCallback? onTap;
 
-  const MealCard({super.key, required this.meal, this.onTap});
+  const MealCard({
+    super.key,
+    required this.meal,
+    required this.onAddToCart,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +59,11 @@ class MealCard extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  TextButton.icon(
+                    onPressed: onAddToCart,
+                    icon: const Icon(Icons.add_shopping_cart),
+                    label: Text(l10n.addToCart),
                   ),
                 ],
               ),

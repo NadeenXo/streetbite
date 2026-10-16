@@ -58,5 +58,9 @@
   "addedToCart": "Meal added to cart",
   "cart": "Cart",
   "cartEmpty": "Your cart is empty",
-  "total": "Total"
+  "total": "Total",
+  "currencyEgp": "EGP",
+  "increaseQuantity": "Increase quantity",
+  "decreaseQuantity": "Decrease quantity",
+  "remove": "Remove item"
 }

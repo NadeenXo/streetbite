@@ -1,7 +1,7 @@
 class CartPricing {
   CartPricing._();
 
-  // Demo price: 100 EGP per meal.
-  // Stored as piastres to avoid floating-point errors.
+  // Demo pricing: each meal costs 100 EGP.
+  // Store money in piastres to avoid floating-point errors.
   static const int demoMealPrice = 10000;
 }

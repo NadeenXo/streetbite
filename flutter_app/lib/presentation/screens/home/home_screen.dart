@@ -12,6 +12,7 @@ import '../../blocs/meals/meal_state.dart';
 import '../../blocs/theme/theme_bloc.dart';
 import '../../blocs/theme/theme_event.dart';
 import '../../blocs/theme/theme_state.dart';
+import '../cart/cart_screen.dart';
 import '../../widgets/home/featured_meal_banner.dart';
 import '../../widgets/home/hot_offers_list.dart';
 import '../../widgets/home/meal_card.dart';
@@ -41,6 +42,28 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text(l10n.appTitle),
           actions: [
+            BlocBuilder<CartBloc, CartState>(
+              builder: (context, state) {
+                return IconButton(
+                  tooltip: l10n.cart,
+                  icon: Badge(
+                    isLabelVisible: state.itemCount > 0,
+                    label: Text('${state.itemCount}'),
+                    child: const Icon(Icons.shopping_cart_outlined),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (_) => BlocProvider.value(
+                          value: context.read<CartBloc>(),
+                          child: const CartScreen(),
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
             BlocBuilder<ThemeBloc, ThemeState>(
               builder: (context, state) {
                 final isDark = state.themeMode == ThemeMode.dark;

@@ -163,8 +163,20 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cart => 'السلة';
 
   @override
-  String get cartEmpty => 'السلة فارغة';
+  String get cartEmpty => 'سلة التسوق فارغة';
 
   @override
   String get total => 'الإجمالي';
+
+  @override
+  String get currencyEgp => 'ج.م';
+
+  @override
+  String get increaseQuantity => 'زيادة الكمية';
+
+  @override
+  String get decreaseQuantity => 'تقليل الكمية';
+
+  @override
+  String get remove => 'إزالة العنصر';
 }

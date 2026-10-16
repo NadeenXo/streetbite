@@ -15,9 +15,10 @@ class CartState extends Equatable {
     this.actionId = 0,
   });
 
-  int get itemCount => items.fold(0, (sum, item) => sum + item.quantity);
+  int get itemCount => items.fold<int>(0, (sum, item) => sum + item.quantity);
 
-  int get totalPrice => items.fold(0, (sum, item) => sum + item.totalPrice);
+  int get totalPrice =>
+      items.fold<int>(0, (sum, item) => sum + item.totalPrice);
 
   @override
   List<Object?> get props => [items, lastAction, actionId];

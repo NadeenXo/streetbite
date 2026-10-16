@@ -57,6 +57,10 @@
   "addToCart": "أضف إلى السلة",
   "addedToCart": "تمت إضافة الوجبة إلى السلة",
   "cart": "السلة",
-  "cartEmpty": "السلة فارغة",
-  "total": "الإجمالي"
+  "cartEmpty": "سلة التسوق فارغة",
+  "total": "الإجمالي",
+  "currencyEgp": "ج.م",
+  "increaseQuantity": "زيادة الكمية",
+  "decreaseQuantity": "تقليل الكمية",
+  "remove": "إزالة العنصر"
 }

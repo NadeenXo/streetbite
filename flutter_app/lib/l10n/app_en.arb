@@ -63,4 +63,12 @@
   "increaseQuantity": "Increase quantity",
   "decreaseQuantity": "Decrease quantity",
   "remove": "Remove item"
+  ,"favourites": "Favourites"
+  ,"noFavourites": "No favourite meals yet"
+  ,"favouritesError": "Could not load favourites"
+  ,"addFavourite": "Add to favourites"
+  ,"removeFavourite": "Remove from favourites"
+  ,"category": "Category"
+  ,"area": "Cuisine"
+  ,"instructions": "Instructions"
 }

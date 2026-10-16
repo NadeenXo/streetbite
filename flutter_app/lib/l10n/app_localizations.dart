@@ -433,6 +433,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Remove item'**
   String get remove;
+
+  /// No description provided for @favourites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favourites'**
+  String get favourites;
+
+  /// No description provided for @noFavourites.
+  ///
+  /// In en, this message translates to:
+  /// **'No favourite meals yet'**
+  String get noFavourites;
+
+  /// No description provided for @favouritesError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load favourites'**
+  String get favouritesError;
+
+  /// No description provided for @addFavourite.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to favourites'**
+  String get addFavourite;
+
+  /// No description provided for @removeFavourite.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from favourites'**
+  String get removeFavourite;
+
+  /// No description provided for @category.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get category;
+
+  /// No description provided for @area.
+  ///
+  /// In en, this message translates to:
+  /// **'Cuisine'**
+  String get area;
+
+  /// No description provided for @instructions.
+  ///
+  /// In en, this message translates to:
+  /// **'Instructions'**
+  String get instructions;
 }
 
 class _AppLocalizationsDelegate

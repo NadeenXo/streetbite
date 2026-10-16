@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:streetbite/data/datasources/auth/auth_remote_data_source.dart';
 import 'package:streetbite/data/datasources/auth/auth_remote_data_source_impl.dart';
+import 'package:streetbite/data/datasources/favourites/favourite_remote_data_source.dart';
 import 'package:streetbite/data/datasources/meals/meal_local_data_source.dart';
 import 'package:streetbite/data/datasources/meals/meal_local_data_source_impl.dart';
 import 'package:streetbite/data/datasources/meals/meal_remote_data_source.dart';
@@ -13,6 +14,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'data/repositories/meal_data_source_factory.dart';
 import 'data/repositories/meal_repository_impl.dart';
 import 'data/repositories/auth_repository_impl.dart';
+import 'data/repositories/favourite_repository_impl.dart';
+import 'domain/repositories/favourite_repository.dart';
 import 'domain/repositories/auth_repository.dart';
 import 'domain/repositories/meal_repository.dart';
 import 'domain/usecases/auth/get_current_user_usecase.dart';
@@ -21,8 +24,10 @@ import 'domain/usecases/auth/logout_usecase.dart';
 import 'domain/usecases/auth/observe_auth_state_usecase.dart';
 import 'domain/usecases/auth/signup_usecase.dart';
 import 'core/network/dio_client.dart';
+import 'domain/usecases/favourites/toggle_favourite_usecase.dart';
 import 'presentation/blocs/auth/auth_cubit.dart';
 import 'presentation/blocs/cart/cart_bloc.dart';
+import 'presentation/blocs/favourites/favourites_cubit.dart';
 import 'presentation/blocs/meals/meal_bloc.dart';
 import 'domain/usecases/meals/get_meals_usecase.dart';
 
@@ -95,6 +100,33 @@ Future<void> initDependencies() async {
 
   if (!sl.isRegistered<CartBloc>()) {
     sl.registerFactory<CartBloc>(CartBloc.new);
+  }
+
+  if (!sl.isRegistered<FavouriteRemoteDataSource>()) {
+    sl.registerLazySingleton<FavouriteRemoteDataSource>(
+      () => FavouriteRemoteDataSourceImpl(sl<FirebaseFirestore>()),
+    );
+  }
+
+  if (!sl.isRegistered<FavouriteRepository>()) {
+    sl.registerLazySingleton<FavouriteRepository>(
+      () => FavouriteRepositoryImpl(sl<FavouriteRemoteDataSource>()),
+    );
+  }
+
+  if (!sl.isRegistered<ToggleFavouriteUseCase>()) {
+    sl.registerLazySingleton<ToggleFavouriteUseCase>(
+      () => ToggleFavouriteUseCase(sl<FavouriteRepository>()),
+    );
+  }
+
+  if (!sl.isRegistered<FavouritesCubit>()) {
+    sl.registerFactory<FavouritesCubit>(
+      () => FavouritesCubit(
+        repository: sl<FavouriteRepository>(),
+        toggleFavouriteUseCase: sl<ToggleFavouriteUseCase>(),
+      ),
+    );
   }
 
   if (!sl.isRegistered<AuthRemoteDataSource>()) {

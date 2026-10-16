@@ -1,26 +1,27 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:streetbite/presentation/screens/auth_gate.dart';
 
 import 'firebase_options.dart';
 import 'core/theme/app_theme.dart';
 import 'injection.dart';
 import 'l10n/app_localizations.dart';
+
 import 'presentation/blocs/locale/locale_cubit.dart';
 import 'presentation/blocs/locale/locale_state.dart';
 import 'presentation/blocs/auth/auth_cubit.dart';
+import 'presentation/blocs/auth/auth_state.dart';
 import 'presentation/blocs/cart/cart_bloc.dart';
+import 'presentation/blocs/favourites/favourites_cubit.dart';
 import 'presentation/blocs/theme/theme_bloc.dart';
 import 'presentation/blocs/theme/theme_state.dart';
-import 'presentation/screens/settings/settings_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Firebase before accessing Firebase services.
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  // Register dependencies using GetIt.
   await initDependencies();
 
   runApp(const StreetBiteApp());
@@ -35,8 +36,9 @@ class StreetBiteApp extends StatelessWidget {
       providers: [
         BlocProvider<ThemeBloc>(create: (_) => ThemeBloc()),
         BlocProvider<LocaleCubit>(create: (_) => LocaleCubit()),
-        BlocProvider<AuthCubit>(create: (_) => sl<AuthCubit>()),
+        BlocProvider<AuthCubit>(create: (_) => sl<AuthCubit>()..start()),
         BlocProvider<CartBloc>(create: (_) => sl<CartBloc>()),
+        BlocProvider<FavouritesCubit>(create: (_) => sl<FavouritesCubit>()),
       ],
       child: const _AppView(),
     );
@@ -66,8 +68,16 @@ class _AppView extends StatelessWidget {
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,
 
-              // Temporary screen for testing localization and theme.
-              home: const SettingsScreen(),
+              home: BlocListener<AuthCubit, AuthState>(
+                listener: (context, state) {
+                  if (state is AuthAuthenticated) {
+                    context.read<FavouritesCubit>().start(state.user.id);
+                  } else if (state is AuthUnauthenticated) {
+                    context.read<FavouritesCubit>().reset();
+                  }
+                },
+                child: const AuthGate(),
+              ),
             );
           },
         );

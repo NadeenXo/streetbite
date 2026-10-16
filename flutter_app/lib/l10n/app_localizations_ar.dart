@@ -179,4 +179,28 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get remove => 'إزالة العنصر';
+
+  @override
+  String get favourites => 'المفضلة';
+
+  @override
+  String get noFavourites => 'لا توجد وجبات مفضلة بعد';
+
+  @override
+  String get favouritesError => 'تعذر تحميل المفضلة';
+
+  @override
+  String get addFavourite => 'إضافة إلى المفضلة';
+
+  @override
+  String get removeFavourite => 'إزالة من المفضلة';
+
+  @override
+  String get category => 'التصنيف';
+
+  @override
+  String get area => 'المطبخ';
+
+  @override
+  String get instructions => 'طريقة التحضير';
 }

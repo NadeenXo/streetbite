@@ -63,4 +63,12 @@
   "increaseQuantity": "زيادة الكمية",
   "decreaseQuantity": "تقليل الكمية",
   "remove": "إزالة العنصر"
+  ,"favourites": "المفضلة"
+  ,"noFavourites": "لا توجد وجبات مفضلة بعد"
+  ,"favouritesError": "تعذر تحميل المفضلة"
+  ,"addFavourite": "إضافة إلى المفضلة"
+  ,"removeFavourite": "إزالة من المفضلة"
+  ,"category": "التصنيف"
+  ,"area": "المطبخ"
+  ,"instructions": "طريقة التحضير"
 }

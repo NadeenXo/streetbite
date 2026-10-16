@@ -180,4 +180,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get remove => 'Remove item';
+
+  @override
+  String get favourites => 'Favourites';
+
+  @override
+  String get noFavourites => 'No favourite meals yet';
+
+  @override
+  String get favouritesError => 'Could not load favourites';
+
+  @override
+  String get addFavourite => 'Add to favourites';
+
+  @override
+  String get removeFavourite => 'Remove from favourites';
+
+  @override
+  String get category => 'Category';
+
+  @override
+  String get area => 'Cuisine';
+
+  @override
+  String get instructions => 'Instructions';
 }

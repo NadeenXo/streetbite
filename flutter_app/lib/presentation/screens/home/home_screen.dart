@@ -6,6 +6,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../blocs/cart/cart_bloc.dart';
 import '../../blocs/cart/cart_event.dart';
 import '../../blocs/cart/cart_state.dart';
+import '../../blocs/favourites/favourites_cubit.dart';
 import '../../blocs/meals/meal_bloc.dart';
 import '../../blocs/meals/meal_event.dart';
 import '../../blocs/meals/meal_state.dart';
@@ -13,6 +14,8 @@ import '../../blocs/theme/theme_bloc.dart';
 import '../../blocs/theme/theme_event.dart';
 import '../../blocs/theme/theme_state.dart';
 import '../cart/cart_screen.dart';
+import '../favourites/favourites_screen.dart';
+import '../meal_details/meal_details_screen.dart';
 import '../../widgets/home/featured_meal_banner.dart';
 import '../../widgets/home/hot_offers_list.dart';
 import '../../widgets/home/meal_card.dart';
@@ -42,6 +45,27 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text(l10n.appTitle),
           actions: [
+            IconButton(
+              tooltip: l10n.favourites,
+              icon: const Icon(Icons.favorite_border),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => MultiBlocProvider(
+                      providers: [
+                        BlocProvider<CartBloc>.value(
+                          value: context.read<CartBloc>(),
+                        ),
+                        BlocProvider<FavouritesCubit>.value(
+                          value: context.read<FavouritesCubit>(),
+                        ),
+                      ],
+                      child: const FavouritesScreen(),
+                    ),
+                  ),
+                );
+              },
+            ),
             BlocBuilder<CartBloc, CartState>(
               builder: (context, state) {
                 return IconButton(
@@ -163,6 +187,25 @@ class HomeScreen extends StatelessWidget {
                             onAddToCart: () {
                               context.read<CartBloc>().add(
                                 AddToCart(meals[index]),
+                              );
+                            },
+                            onTap: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute<void>(
+                                  builder: (_) => MultiBlocProvider(
+                                    providers: [
+                                      BlocProvider<CartBloc>.value(
+                                        value: context.read<CartBloc>(),
+                                      ),
+                                      BlocProvider<FavouritesCubit>.value(
+                                        value: context.read<FavouritesCubit>(),
+                                      ),
+                                    ],
+                                    child: MealDetailsScreen(
+                                      meal: meals[index],
+                                    ),
+                                  ),
+                                ),
                               );
                             },
                           );

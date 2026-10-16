@@ -20,7 +20,7 @@ class AuthGate extends StatelessWidget {
     return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, state) {
         if (state is AuthAuthenticated) {
-          return AuthenticatedLandingScreen(user: state.user);
+          return const AuthenticatedLandingScreen();
         }
         if (state is AuthInitial ||
             state is AuthLoading && state.action == AuthAction.restore) {

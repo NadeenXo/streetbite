@@ -157,6 +157,234 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Arabic'**
   String get arabic;
+
+  /// No description provided for @authLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in'**
+  String get authLogin;
+
+  /// No description provided for @authSignUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign up'**
+  String get authSignUp;
+
+  /// No description provided for @authWelcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to StreetBite'**
+  String get authWelcome;
+
+  /// No description provided for @authEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get authEmail;
+
+  /// No description provided for @authPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get authPassword;
+
+  /// No description provided for @authFullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full name'**
+  String get authFullName;
+
+  /// No description provided for @authConfirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm password'**
+  String get authConfirmPassword;
+
+  /// No description provided for @authShowPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Show password'**
+  String get authShowPassword;
+
+  /// No description provided for @authHidePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide password'**
+  String get authHidePassword;
+
+  /// No description provided for @authCreateAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create an account'**
+  String get authCreateAccount;
+
+  /// No description provided for @authLogout.
+  ///
+  /// In en, this message translates to:
+  /// **'Log out'**
+  String get authLogout;
+
+  /// No description provided for @authTryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get authTryAgain;
+
+  /// No description provided for @authSignedInAs.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome, {name}'**
+  String authSignedInAs(String name);
+
+  /// No description provided for @authRequiredName.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your full name.'**
+  String get authRequiredName;
+
+  /// No description provided for @authCapitalName.
+  ///
+  /// In en, this message translates to:
+  /// **'Start your name with a capital English letter.'**
+  String get authCapitalName;
+
+  /// No description provided for @authRequiredEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email.'**
+  String get authRequiredEmail;
+
+  /// No description provided for @authInvalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email.'**
+  String get authInvalidEmail;
+
+  /// No description provided for @authRequiredPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your password.'**
+  String get authRequiredPassword;
+
+  /// No description provided for @authShortPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters.'**
+  String get authShortPassword;
+
+  /// No description provided for @authConfirmRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please confirm your password.'**
+  String get authConfirmRequired;
+
+  /// No description provided for @authPasswordsMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match.'**
+  String get authPasswordsMismatch;
+
+  /// No description provided for @authNetworkError.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your internet connection and try again.'**
+  String get authNetworkError;
+
+  /// No description provided for @authEmailInUse.
+  ///
+  /// In en, this message translates to:
+  /// **'This email is already registered.'**
+  String get authEmailInUse;
+
+  /// No description provided for @authWeakPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a stronger password.'**
+  String get authWeakPassword;
+
+  /// No description provided for @authInvalidCredentials.
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrect email or password.'**
+  String get authInvalidCredentials;
+
+  /// No description provided for @authMissingProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Your account exists, but your profile could not be loaded. Please contact support.'**
+  String get authMissingProfile;
+
+  /// No description provided for @authPermissionError.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to access your profile.'**
+  String get authPermissionError;
+
+  /// No description provided for @authGenericError.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again.'**
+  String get authGenericError;
+
+  /// No description provided for @featuredMeals.
+  ///
+  /// In en, this message translates to:
+  /// **'Featured Meals'**
+  String get featuredMeals;
+
+  /// No description provided for @hotOffers.
+  ///
+  /// In en, this message translates to:
+  /// **'Hot Offers'**
+  String get hotOffers;
+
+  /// No description provided for @exploreMeals.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore Meals'**
+  String get exploreMeals;
+
+  /// No description provided for @noMealsAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No meals available'**
+  String get noMealsAvailable;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Try Again'**
+  String get retry;
+
+  /// No description provided for @mealLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to load meals. Please try again.'**
+  String get mealLoadError;
+
+  /// No description provided for @checkInternet.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your internet connection and try again.'**
+  String get checkInternet;
+
+  /// No description provided for @mealCategoryUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get mealCategoryUnknown;
+
+  /// No description provided for @lightMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Light Mode'**
+  String get lightMode;
+
+  /// No description provided for @addToCart.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Cart'**
+  String get addToCart;
 }
 
 class _AppLocalizationsDelegate

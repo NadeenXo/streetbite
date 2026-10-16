@@ -9,5 +9,50 @@
   "darkMode": "الوضع الداكن",
   "language": "اللغة",
   "english": "الإنجليزية",
-  "arabic": "العربية"
+  "arabic": "العربية",
+  "authLogin": "تسجيل الدخول",
+  "authSignUp": "إنشاء حساب",
+  "authWelcome": "مرحبًا بك في ستريت بايت",
+  "authEmail": "البريد الإلكتروني",
+  "authPassword": "كلمة المرور",
+  "authFullName": "الاسم الكامل",
+  "authConfirmPassword": "تأكيد كلمة المرور",
+  "authShowPassword": "إظهار كلمة المرور",
+  "authHidePassword": "إخفاء كلمة المرور",
+  "authCreateAccount": "إنشاء حساب جديد",
+  "authLogout": "تسجيل الخروج",
+  "authTryAgain": "حاول مجددًا",
+  "authSignedInAs": "مرحبًا، {name}",
+  "@authSignedInAs": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "authRequiredName": "يرجى إدخال الاسم الكامل.",
+  "authCapitalName": "يجب أن يبدأ الاسم بحرف إنجليزي كبير.",
+  "authRequiredEmail": "يرجى إدخال البريد الإلكتروني.",
+  "authInvalidEmail": "يرجى إدخال بريد إلكتروني صحيح.",
+  "authRequiredPassword": "يرجى إدخال كلمة المرور.",
+  "authShortPassword": "يجب ألا تقل كلمة المرور عن ٦ أحرف.",
+  "authConfirmRequired": "يرجى تأكيد كلمة المرور.",
+  "authPasswordsMismatch": "كلمتا المرور غير متطابقتين.",
+  "authNetworkError": "تحقق من الاتصال بالإنترنت وحاول مجددًا.",
+  "authEmailInUse": "هذا البريد الإلكتروني مسجل بالفعل.",
+  "authWeakPassword": "يرجى اختيار كلمة مرور أقوى.",
+  "authInvalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+  "authMissingProfile": "الحساب موجود لكن تعذر تحميل الملف الشخصي. يرجى التواصل مع الدعم.",
+  "authPermissionError": "تعذر الوصول إلى ملفك الشخصي.",
+  "authGenericError": "حدث خطأ ما. يرجى المحاولة مجددًا.",
+  "featuredMeals": "وجبات مميزة",
+  "hotOffers": "عروض مميزة",
+  "exploreMeals": "استكشف الوجبات",
+  "noMealsAvailable": "لا توجد وجبات متاحة",
+  "retry": "حاول مرة أخرى",
+  "mealLoadError": "تعذر تحميل الوجبات. يرجى المحاولة مرة أخرى.",
+  "checkInternet": "تحقق من اتصال الإنترنت وحاول مرة أخرى.",
+  "mealCategoryUnknown": "أخرى",
+  "lightMode": "الوضع الفاتح",
+  "addToCart": "أضف إلى السلة"
 }

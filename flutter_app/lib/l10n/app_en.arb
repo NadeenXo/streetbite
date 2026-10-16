@@ -9,5 +9,50 @@
   "darkMode": "Dark mode",
   "language": "Language",
   "english": "English",
-  "arabic": "Arabic"
+  "arabic": "Arabic",
+  "authLogin": "Log in",
+  "authSignUp": "Sign up",
+  "authWelcome": "Welcome to StreetBite",
+  "authEmail": "Email",
+  "authPassword": "Password",
+  "authFullName": "Full name",
+  "authConfirmPassword": "Confirm password",
+  "authShowPassword": "Show password",
+  "authHidePassword": "Hide password",
+  "authCreateAccount": "Create an account",
+  "authLogout": "Log out",
+  "authTryAgain": "Try again",
+  "authSignedInAs": "Welcome, {name}",
+  "@authSignedInAs": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "authRequiredName": "Please enter your full name.",
+  "authCapitalName": "Start your name with a capital English letter.",
+  "authRequiredEmail": "Please enter your email.",
+  "authInvalidEmail": "Please enter a valid email.",
+  "authRequiredPassword": "Please enter your password.",
+  "authShortPassword": "Password must be at least 6 characters.",
+  "authConfirmRequired": "Please confirm your password.",
+  "authPasswordsMismatch": "Passwords do not match.",
+  "authNetworkError": "Check your internet connection and try again.",
+  "authEmailInUse": "This email is already registered.",
+  "authWeakPassword": "Choose a stronger password.",
+  "authInvalidCredentials": "Incorrect email or password.",
+  "authMissingProfile": "Your account exists, but your profile could not be loaded. Please contact support.",
+  "authPermissionError": "Unable to access your profile.",
+  "authGenericError": "Something went wrong. Please try again.",
+  "featuredMeals": "Featured Meals",
+  "hotOffers": "Hot Offers",
+  "exploreMeals": "Explore Meals",
+  "noMealsAvailable": "No meals available",
+  "retry": "Try Again",
+  "mealLoadError": "Unable to load meals. Please try again.",
+  "checkInternet": "Check your internet connection and try again.",
+  "mealCategoryUnknown": "Other",
+  "lightMode": "Light Mode",
+  "addToCart": "Add to Cart"
 }

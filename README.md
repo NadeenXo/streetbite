@@ -70,10 +70,8 @@ streetbite/
     │   │   ├── constants/
     │   │   ├── errors/
     │   │   ├── network/
-    │   │   ├── routes/
     │   │   ├── services/
     │   │   ├── theme/
-    │   │   └── utils/
     │   │
     │   ├── data/
     │   │   ├── datasources/
